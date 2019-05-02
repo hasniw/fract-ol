@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 05:51:36 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/02 04:54:23 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/02 06:35:39 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,67 +24,6 @@ void	bzero_tab(unsigned int *tab)
 	}
 }
 
-void	color_split(t_mlx *mlx, t_var *var, int i)
-{
-	if (i % 16 == 7)
-		mlx->tab[var->y * WIDTH + var->x] = 3767761;
-	else if (i % 16 == 8)
-		mlx->tab[var->y * WIDTH + var->x] = 8828389;
-	else if (i % 16 == 9)
-		mlx->tab[var->y * WIDTH + var->x] = 13888760;
-	else if (i % 16 == 10)
-		mlx->tab[var->y * WIDTH + var->x] = 15854015;
-	else if (i % 16 == 11)
-		mlx->tab[var->y * WIDTH + var->x] = 16304479;
-	else if (i % 16 == 12)
-		mlx->tab[var->y * WIDTH + var->x] = 16755200;
-	else if (i % 16 == 13)
-		mlx->tab[var->y * WIDTH + var->x] = 13402112;
-	else if (i % 16 == 14)
-		mlx->tab[var->y * WIDTH + var->x] = 10049280;
-	else if (i % 16 == 15)
-		mlx->tab[var->y * WIDTH + var->x] = 6960131;
-}
-
-void	color(t_mlx *mlx, t_var *var, t_args *args, int i)
-{
-	if (i == args->it_max)
-		mlx->tab[var->y * WIDTH + var->x] = 0;
-	else if (i % 16 == 0)
-		mlx->tab[var->y * WIDTH + var->x] = 4333071;
-	else if (i % 16 == 1)
-		mlx->tab[var->y * WIDTH + var->x] = 1640218;
-	else if (i % 16 == 2)
-		mlx->tab[var->y * WIDTH + var->x] = 590127;
-	else if (i % 16 == 3)
-		mlx->tab[var->y * WIDTH + var->x] = 263241;
-	else if (i % 16 == 4)
-		mlx->tab[var->y * WIDTH + var->x] = 1892;
-	else if (i % 16 == 5)
-		mlx->tab[var->y * WIDTH + var->x] = 797834;
-	else if (i % 16 == 6)
-		mlx->tab[var->y * WIDTH + var->x] = 1594033;
-	else
-		color_split(mlx, var, i);
-}
-
-void	color_input(int key, t_args *args)
-{
-	if (key == NUMBER_1)
-		args->color = 1;
-	else
-		args->color = 2;
-	if (key == NUMBER_2)
-		args->color_value = 100;
-	if (key == NUMBER_3)
-		args->color_value = 1800;
-	if (key == NUMBER_4)
-		args->color_value = 2400;
-	if (key == NUMBER_5)
-		args->color_value = 6000;
-}
-
-
 void		init_mandelbrot(t_args *args)
 {
 	args->x1 = -2;
@@ -93,7 +32,7 @@ void		init_mandelbrot(t_args *args)
 	args->it_max = 50;
 }
 
-static void	calc_mandelbrot(t_mlx *mlx, t_var *var, t_args *args)
+void	calc_mandelbrot(t_mlx *mlx, t_var *var, t_args *args)
 {
 	int				i;
 	double			tmp;

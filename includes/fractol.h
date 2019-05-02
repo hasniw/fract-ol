@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 03:40:18 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/02 04:00:39 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/02 06:36:11 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,46 @@ typedef struct  s_args
 	double      y1;
 }               t_args;
 
-int     deal_mouse(int mouse, int x, int y, t_args *args);
-int     deal_key(int key, t_args *args);
-int		print_mandelbrot(t_args *args);
-void	init_mandelbrot(t_args *args);
-void	destroy_window(t_mlx *mlx);
-void	move(int key, t_args *args);
-void	color_input(int key, t_args *args);
+/*
+** PRINT FRACTAL
+*/
+
 int		print_fract(t_args *args);
+void	init_fract(char *str, t_args *args);
+
+/*
+** ACTIONS
+*/
+
+void	move(int key, t_args *args);
+void	zoom(int x, int y, t_args *args);
+void	dezoom(int x, int y, t_args *args);
+
+
+/*
+** COLORS
+*/
+
+void	color_input(int key, t_args *args);
+void	color(t_mlx *mlx, t_var *var, t_args *args, int i);
+void	color_split(t_mlx *mlx, t_var *var, int i);
+
+
+/*
+** MLX - EVENT
+*/
+
 int		mouse_hook(int key, int x, int y, void *args);
+void	destroy_window(t_mlx *mlx);
+int		key_hook(int key, void *args);
+
+
+/*
+** MANDELBROT
+*/
+
+int		print_mandelbrot(t_args *args);
+void	calc_mandelbrot(t_mlx *mlx, t_var *var, t_args *args);
+void	init_mandelbrot(t_args *args);
 
 #endif
