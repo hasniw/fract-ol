@@ -6,13 +6,13 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 06:17:42 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/02 06:44:07 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/02 06:45:26 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	color_split(t_mlx *mlx, t_var *var, int i)
+void	color2(t_mlx *mlx, t_var *var, int i)
 {
 	if (i % 16 == 7)
 		mlx->tab[var->y * WIDTH + var->x] = 776123;
@@ -53,7 +53,7 @@ void	color(t_mlx *mlx, t_var *var, t_args *args, int i)
 	else if (i % 16 == 6)
 		mlx->tab[var->y * WIDTH + var->x] = 159233;
 	else
-		color_split(mlx, var, i);
+		color2(mlx, var, i);
 }
 
 void	color_input(int key, t_args *args)

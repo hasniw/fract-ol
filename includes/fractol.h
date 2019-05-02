@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 03:40:18 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/02 06:36:11 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/02 06:45:37 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	dezoom(int x, int y, t_args *args);
 
 void	color_input(int key, t_args *args);
 void	color(t_mlx *mlx, t_var *var, t_args *args, int i);
-void	color_split(t_mlx *mlx, t_var *var, int i);
+void	color2(t_mlx *mlx, t_var *var, int i);
 
 
 /*
