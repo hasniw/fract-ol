@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 08:56:13 by pvandamm          #+#    #+#             */
-/*   Updated: 2019/05/01 23:19:29 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/02 04:54:25 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void	destroy_window(t_mlx *mlx)
 
 void	move(int key, t_args *args)
 {
-	if (key == 123)
+	if (key == KEY_LEFT)
 		args->x1 += 30 / args->zoom;
-	if (key == 124)
+	if (key == KEY_RIGHT)
 		args->x1 -= 30 / args->zoom;
-	if (key == 125)
+	if (key == KEY_DOWN)
 		args->y1 -= 30 / args->zoom;
-	if (key == 126)
+	if (key == KEY_UP)
 		args->y1 += 30 / args->zoom;
 }
 
@@ -49,9 +49,9 @@ void	dezoom(int x, int y, t_args *args)
 
 int		mouse_hook(int key, int x, int y, void *args)
 {
-	if (key == 4 || key == 1)
+	if (key == 4)
 		zoom(x, y, ((t_args *)args));
-	if (key == 5 || key == 2)
+	if (key == 5)
 		dezoom(x, y, ((t_args *)args));
 	// print_fract(args);
 	print_mandelbrot(args);

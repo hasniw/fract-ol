@@ -6,38 +6,13 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 03:23:21 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/01 23:02:37 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/02 06:02:29 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-// int     create_image(t_image *image, t_args *args)
-// {
-//     // printf("%p\n", args->mlx_ptr);
-//     if (!(image->ptr = mlx_new_image(args->mlx_ptr, 50, 60)))
-//     {
-//         printf("yo");
-//         return (-1);
-//     }
-//     printf("image\n");
-//    if (!(image->img = mlx_get_data_addr(image->ptr,
-//        &(image->bpp), &(image->line_size), &(image->endian))))
-//        return (-1);
-//     return (0);
-// }
-
-// int ft_init_env(t_args *args)
-// {
-//     args->mlx_ptr = mlx_init();
-//     if (!(args->win_ptr = mlx_new_window(args->mlx_ptr, WINX, WINY, "mlx 42")))
-//         return (-1);
-//     // if (!(args->image = create_image(image, args)))
-//     //     return (-1);
-//     return (0);
-// }
-
-static int      print_fract(t_args *args)
+int      print_fract(t_args *args)
 {
 	if (args->fract == 1)
     {
@@ -56,27 +31,39 @@ static int      print_fract(t_args *args)
 
 static int		key_hook(int key, void *args)
 {
-	if (key == 53)
+	if (key == KEY_ESCAPE)
 		destroy_window(((t_args *)args)->mlx);
 	if (key > 122 && key < 127)
 		move(key, ((t_args *)args));
-	if (key == 69)
-		((t_args *)args)->it_max += 1;
-	if (key == 78)
-		((t_args *)args)->it_max -= 1;
-	if (key == 30)
-		((t_args *)args)->it_max += 500;
-	if (key == 33)
-		if (((t_args *)args)->it_max - 500 > 0)
-			((t_args *)args)->it_max -= 500;
-	if (key == 35)
-	{
-		if (((t_args *)args)->pause == 1)
-			((t_args *)args)->pause = 0;
-		else
-			((t_args *)args)->pause = 1;
-	}
-	if (key > 17 && key < 22)
+	// if (key == 69)
+	// {
+	// 	printf("69\n");
+	// 	((t_args *)args)->it_max += 10;
+	// }
+	// if (key == 78)
+	// {
+	// 	((t_args *)args)->it_max -= 10;
+	// 	printf("78\n");
+	// }
+	// if (key == 30)
+	// {
+	// 	((t_args *)args)->it_max += 1000;
+	// 	printf("30\n");
+	// }
+	// if (key == 33)
+	// {
+	// 	printf("33\n");
+	// 	if (((t_args *)args)->it_max - 500 > 0)
+	// 		((t_args *)args)->it_max -= 500;
+	// }
+	// if (key == 35)
+	// {
+	// 	if (((t_args *)args)->pause == 1)
+	// 		((t_args *)args)->pause = 0;
+	// 	else
+	// 		((t_args *)args)->pause = 1;
+	// }
+	if ((key > 17 && key < 22) || (key == 23))
 		color_input(key, ((t_args *)args));
 	print_fract(args);
 	return (0);

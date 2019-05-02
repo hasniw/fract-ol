@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 03:40:18 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/01 23:13:02 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/02 04:00:39 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,21 @@
 # include "mlx.h"
 
 # define WIDTH 1000
+
+/*
+** MACRO : KEY CODES
+*/
+
+# define KEY_ESCAPE 53
+# define KEY_UP 126
+# define KEY_DOWN 125
+# define KEY_LEFT 123
+# define KEY_RIGHT 124
+# define NUMBER_1 18
+# define NUMBER_2 19
+# define NUMBER_3 20
+# define NUMBER_4 21
+# define NUMBER_5 23
 
 typedef struct	s_var
 {
@@ -50,7 +65,7 @@ typedef struct  s_args
 	t_var		*var;
     int			fract;
     int         it_max;
-	int         pause;
+	// int         pause;
 	int         color;
 	int         color_value;
 	double      zoom;

@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 05:51:36 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/01 22:56:30 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/02 04:54:23 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,16 +70,18 @@ void	color(t_mlx *mlx, t_var *var, t_args *args, int i)
 
 void	color_input(int key, t_args *args)
 {
-	if (key == 18)
+	if (key == NUMBER_1)
 		args->color = 1;
 	else
 		args->color = 2;
-	if (key == 19)
-		args->color_value = 9999;
-	if (key == 20)
-		args->color_value = 333333;
-	if (key == 21)
-		args->color_value = 555555;
+	if (key == NUMBER_2)
+		args->color_value = 100;
+	if (key == NUMBER_3)
+		args->color_value = 1800;
+	if (key == NUMBER_4)
+		args->color_value = 2400;
+	if (key == NUMBER_5)
+		args->color_value = 6000;
 }
 
 
@@ -122,7 +124,7 @@ static void	calc_mandelbrot(t_mlx *mlx, t_var *var, t_args *args)
 int			print_mandelbrot(t_args *args)
 {
 	// static int i = 0;
-	char	*it;
+	char	*i;
 
 	// printf("i : %d\n", i);
 	// i++;
@@ -147,11 +149,10 @@ int			print_mandelbrot(t_args *args)
 	mlx_string_put(args->mlx->mlx_p, args->mlx->win_p, 20, 20, 16777215,
 			"ITERATION MAX : ");
 	// printf("flan\n");
-	if (!(it = ft_itoa(args->it_max)))
+	if (!(i = ft_itoa(args->it_max)))
 		return (0);
 	// printf("poke\n");
-	// mlx_string_put(data->id->mlx_p, data->id->win_p, 180, 20, 16777215, it);
-	// free(it);
+	mlx_string_put(args->mlx->mlx_p, args->mlx->win_p, 180, 20, 16777215, i);
 	// printf("baba\n");
 	// mlx_loop(args->mlx_ptr);
 	return (1);
