@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 05:51:36 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/02 06:35:39 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/02 07:53:42 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void		init_mandelbrot(t_args *args)
 	args->it_max = 50;
 }
 
-void	calc_mandelbrot(t_mlx *mlx, t_var *var, t_args *args)
+void	algo_mandelbrot(t_mlx *mlx, t_var *var, t_args *args)
 {
 	int				i;
 	double			tmp;
@@ -62,37 +62,26 @@ void	calc_mandelbrot(t_mlx *mlx, t_var *var, t_args *args)
 
 int			print_mandelbrot(t_args *args)
 {
-	// static int i = 0;
 	char	*i;
 
-	// printf("i : %d\n", i);
-	// i++;
 	args->var->x = 0;
 	bzero_tab(args->mlx->tab);
-	// printf("l\n");
 	while (args->var->x < WIDTH)
 	{
 		args->var->y = 0;
 		while (args->var->y < WIDTH)
 		{
-			calc_mandelbrot(args->mlx, args->var, args);
+			algo_mandelbrot(args->mlx, args->var, args);
 			args->var->y++;
 		}
 		args->var->x++;
-		// printf("var->x : %d\n", args->var->x++);
 	}
-	// printf("blabla\n");
 	mlx_put_image_to_window(args->mlx->mlx_p, args->mlx->win_p,
 			args->mlx->img_p, 0, 0);
-	// printf("Yeah\n");
 	mlx_string_put(args->mlx->mlx_p, args->mlx->win_p, 20, 20, 16777215,
 			"ITERATION MAX : ");
-	// printf("flan\n");
 	if (!(i = ft_itoa(args->it_max)))
 		return (0);
-	// printf("poke\n");
 	mlx_string_put(args->mlx->mlx_p, args->mlx->win_p, 180, 20, 16777215, i);
-	// printf("baba\n");
-	// mlx_loop(args->mlx_ptr);
 	return (1);
 }

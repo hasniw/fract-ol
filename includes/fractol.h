@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 03:40:18 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/02 06:45:37 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/02 07:54:06 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int		key_hook(int key, void *args);
 */
 
 int		print_mandelbrot(t_args *args);
-void	calc_mandelbrot(t_mlx *mlx, t_var *var, t_args *args);
+void	algo_mandelbrot(t_mlx *mlx, t_var *var, t_args *args);
 void	init_mandelbrot(t_args *args);
 
 #endif
