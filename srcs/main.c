@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 03:23:21 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/02 06:36:25 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/02 22:03:35 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,43 +15,13 @@
 int      print_fract(t_args *args)
 {
 	if (args->fract == 1)
-    {
 		if (!(print_mandelbrot(args)))
-		{
             return (0);
-        }
-    }
 	// if (args->fract == 2)
 	// 	if (!(print_julia(args)))
 	// 		return (0);
 	return (1);
 }
-
-// static int		key_hook(int key, void *args)
-// {
-// 	if (key == KEY_ESCAPE)
-// 		destroy_window(((t_args *)args)->mlx);
-// 	if (key > 122 && key < 127)
-// 		move(key, ((t_args *)args));
-// 	// if (key == 69)
-// 	// 	((t_args *)args)->it_max += 10;
-// 	// if (key == 78)
-// 	// 	((t_args *)args)->it_max -= 10;
-// 	// if (key == 30)
-// 	// 	((t_args *)args)->it_max += 1000;
-// 	// if (key == 33)
-// 	// 	if (((t_args *)args)->it_max - 500 > 0)
-// 	// 		((t_args *)args)->it_max -= 500;
-// 	// if (key == 35)
-// 	// 	if (((t_args *)args)->pause == 1)
-// 	// 		((t_args *)args)->pause = 0;
-// 	// 	else
-// 	// 		((t_args *)args)->pause = 1;
-// 	if ((key > 17 && key < 22) || (key == 23))
-// 		color_input(key, ((t_args *)args));
-// 	print_fract(args);
-// 	return (0);
-// }
 
 void		init_fract(char *str, t_args *args)
 {

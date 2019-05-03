@@ -6,7 +6,7 @@
 #    By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/20 01:48:33 by mnaji             #+#    #+#              #
-#    Updated: 2019/05/02 06:37:04 by wahasni          ###   ########.fr        #
+#    Updated: 2019/05/02 08:04:28 by wahasni          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INC_DIR = ./includes/
 LIBFT_DIR = ./libft/
 MINLBX_DIR = ./mlx_lib/
 
-SRC_FILES = main.c ft_mandelbrot.c ft_event.c ft_colors.c ft_action.c
+SRC_FILES = main.c ft_mandelbrot.c ft_event.c ft_colors.c ft_action.c ft_julia.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
