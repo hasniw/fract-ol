@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 03:40:18 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/03 02:13:13 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/03 05:58:03 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,15 @@ typedef struct  s_args
 	t_var		*var;
     int			fract;
     int         it_max;
-	// int         pause;
+	int         pause;
 	int         color;
 	int         color_value;
 	double      zoom;
 	double      x1;
 	double      y1;
 }               t_args;
+
+void	bzero_tab(unsigned int *tab);
 
 /*
 ** PRINT FRACTAL
@@ -114,5 +116,16 @@ int		key_hook(int key, void *args);
 int		print_mandelbrot(t_args *args);
 void	algo_mandelbrot(t_mlx *mlx, t_var *var, t_args *args);
 void	init_mandelbrot(t_args *args);
+
+
+/*
+** JULIA
+*/
+
+int		print_julia(t_args *args);
+void	calc_julia(t_mlx *mlx, t_var *var, t_args *args);
+void	init_julia(t_args *args);
+int		julia_hook(int x, int y, void *args);
+
 
 #endif

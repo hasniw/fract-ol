@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 03:23:21 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/02 22:03:35 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/03 05:57:44 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int      print_fract(t_args *args)
 	if (args->fract == 1)
 		if (!(print_mandelbrot(args)))
             return (0);
-	// if (args->fract == 2)
-	// 	if (!(print_julia(args)))
-	// 		return (0);
+	if (args->fract == 2)
+		if (!(print_julia(args)))
+			return (0);
 	return (1);
 }
 
@@ -30,11 +30,11 @@ void		init_fract(char *str, t_args *args)
 		init_mandelbrot(args);
 		args->fract = 1;
 	}
-	// else if (!ft_strcmp(str, "Julia"))
-	// {
-	// 	init_julia(args);
-	// 	args->fract = 2;
-	// }
+	else if (!ft_strcmp(str, "Julia"))
+	{
+		init_julia(args);
+		args->fract = 2;
+	}
 }
 
 t_args	*ft_init(void)
@@ -88,6 +88,7 @@ int             main(int ac, char **av)
         return (0);
 	mlx_mouse_hook(args->mlx->win_p, mouse_hook, args);
 	mlx_hook(args->mlx->win_p, 2, 0, key_hook, args);
+	mlx_hook(args->mlx->win_p, 6, 1L << 6, julia_hook, args);
 	mlx_loop(args->mlx->mlx_p);
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 17:20:11 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/02 06:39:20 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/03 05:55:19 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,13 @@ int		key_hook(int key, void *args)
 	// if (key == 33)
 	// 	if (((t_args *)args)->it_max - 500 > 0)
 	// 		((t_args *)args)->it_max -= 500;
-	// if (key == 35)
-	// 	if (((t_args *)args)->pause == 1)
-	// 		((t_args *)args)->pause = 0;
-	// 	else
-	// 		((t_args *)args)->pause = 1;
+	if (key == 69)
+	{
+		if (((t_args *)args)->pause == 1)
+			((t_args *)args)->pause = 0;
+		else
+			((t_args *)args)->pause = 1;
+	}
 	if ((key > 17 && key < 22) || (key == 23))
 		color_input(key, ((t_args *)args));
 	print_fract(args);
