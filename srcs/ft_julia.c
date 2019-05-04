@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 05:52:07 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/04 02:24:39 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/04 05:43:17 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void		init_julia(t_args *args)
 	args->zoom = 300;
 	args->it_max = 50;
 	args->pause = 0;
-	args->var->c_r = -0.9;
-	args->var->c_i = 0.305;
+	args->var->c_r = 0.285;
+	args->var->c_i = 0.01;
 }
 
 void	calc_julia(t_mlx *mlx, t_var *var, t_args *args)
@@ -43,12 +43,11 @@ void	calc_julia(t_mlx *mlx, t_var *var, t_args *args)
 	var->z_r = var->x / args->zoom + args->x1;
 	var->z_i = var->y / args->zoom + args->y1;
 	while (var->z_r * var->z_r + var->z_i *
-			var->z_i < 4 && i < args->it_max)
+			var->z_i < 4 && i++ < args->it_max)
 	{
 		tmp = var->z_r;
 		var->z_r = var->z_r * var->z_r - var->z_i * var->z_i + var->c_r;
 		var->z_i = 2 * var->z_i * tmp + var->c_i;
-		i++;
 	}
 	if (args->color != 1)
 		if (i == args->it_max)

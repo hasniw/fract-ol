@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 02:10:49 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/04 02:22:25 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/04 03:58:52 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,5 @@ void	algo_buddhabrot(t_mlx *mlx, t_var *var, t_args *args)
 
 int			print_buddhabrot(t_args *args)
 {
-	int i;
-
-    var->c_r = var->x / args->zoom + args->x1;
-	var->c_i = var->y / args->zoom + args->y1;
-	var->z_r = 0;
-	var->z_i = 0;
-	i = 0;
+	
 }

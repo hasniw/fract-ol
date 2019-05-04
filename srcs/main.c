@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 03:23:21 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/04 01:59:37 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/04 05:29:05 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ int      print_fract(t_args *args)
             return (0);
 	if (args->fract == 2)
 		if (!(print_julia(args)))
+			return (0);
+	if (args->fract == 3)
+		if (!(print_burningship(args)))
 			return (0);
 	return (1);
 }
@@ -34,6 +37,11 @@ void		init_fract(char *str, t_args *args)
 	{
 		init_julia(args);
 		args->fract = 2;
+	}
+	else if (!ft_strcmp(str, "Burningship"))
+	{
+		init_burningship(args);
+		args->fract = 3;
 	}
 }
 
@@ -63,12 +71,14 @@ int      ft_check_usage(int ac, char **av)
         ft_putendl("Ce n'est pas le bon nombre d'argument");
         return (0);
     }
-	else if ((ft_strcmp(av[1], "Julia") && (ft_strcmp(av[1], "Mandelbrot"))))
+	else if ((ft_strcmp(av[1], "Julia") && (ft_strcmp(av[1], "Mandelbrot")
+				&& (ft_strcmp(av[1], "Burningship")))))
     {
         ft_putendl("usage : ./fractol [fractal]");
         ft_putendl("fractals :");
         ft_putendl("--> Mandelbrot");
         ft_putendl("--> Julia");
+		ft_putendl("--> Burningship");
         return (0);
     }
 	return (1);

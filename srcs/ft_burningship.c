@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mandelbrot.c                                    :+:      :+:    :+:   */
+/*   ft_burningship.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 05:51:36 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/04 05:22:03 by wahasni          ###   ########.fr       */
+/*   Created: 2019/05/04 04:10:11 by wahasni           #+#    #+#             */
+/*   Updated: 2019/05/04 04:10:37 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	bzero_tab(unsigned int *tab)
-{
-	int	i;
-
-	i = 0;
-	while (i < WIDTH * WIDTH)
-	{
-		tab[i] = 0;
-		i++;
-	}
-}
-
-void		init_mandelbrot(t_args *args)
+void		init_burningship(t_args *args)
 {
 	args->x1 = -2;
 	args->y1 = -1.5;
@@ -32,7 +20,7 @@ void		init_mandelbrot(t_args *args)
 	args->it_max = 50;
 }
 
-void	algo_mandelbrot(t_mlx *mlx, t_var *var, t_args *args)
+void	algo_burningship(t_mlx *mlx, t_var *var, t_args *args)
 {
 	int				i;
 	double			tmp;
@@ -45,10 +33,9 @@ void	algo_mandelbrot(t_mlx *mlx, t_var *var, t_args *args)
 	while (var->z_r * var->z_r + var->z_i *
 			var->z_i < 4 && i < args->it_max)
 	{
-		tmp = var->z_r;
-		var->z_r = var->z_r * var->z_r - var->z_i *
-			var->z_i + var->c_r;
-		var->z_i = 2 * tmp * var->z_i + var->c_i;
+		tmp = var->z_r * var->z_r - var->z_i * var->z_i + var->c_r;
+		var->z_i = fabs(2 * var->z_r * var->z_i) + var->c_i;
+        var->z_r = tmp;
 		i++;
 	}
 	if (args->color != 1)
@@ -60,7 +47,7 @@ void	algo_mandelbrot(t_mlx *mlx, t_var *var, t_args *args)
 		color(mlx, var, args, i);
 }
 
-int			print_mandelbrot(t_args *args)
+int			print_burningship(t_args *args)
 {
 	args->var->x = 0;
 	bzero_tab(args->mlx->tab);
@@ -69,7 +56,7 @@ int			print_mandelbrot(t_args *args)
 		args->var->y = 0;
 		while (args->var->y < WIDTH)
 		{
-			algo_mandelbrot(args->mlx, args->var, args);
+			algo_burningship(args->mlx, args->var, args);
 			args->var->y++;
 		}
 		args->var->x++;

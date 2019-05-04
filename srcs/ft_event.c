@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 17:20:11 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/04 01:33:16 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/04 05:22:10 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		key_hook(int key, void *args)
 		destroy_window(((t_args *)args)->mlx);
 	if (key > 122 && key < 127)
 		move(key, ((t_args *)args));
-	if (key == 49)
+	if (key == SPACE)
 	{
 		if (((t_args *)args)->pause == 1)
 			((t_args *)args)->pause = 0;
@@ -44,6 +44,12 @@ int		key_hook(int key, void *args)
 	}
 	if ((key > 17 && key < 22) || (key == 23))
 		color_input(key, ((t_args *)args));
+	if (key == LETTER_Q)
+		((t_args *)args)->fract = 1;
+	if (key == LETTER_W)
+		((t_args *)args)->fract = 2;
+	if (key == LETTER_E)
+		((t_args *)args)->fract = 3;
 	print_fract(args);
 	return (0);
 }

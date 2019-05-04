@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 03:40:18 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/03 05:58:03 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/04 05:16:58 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@
 # define NUMBER_3 20
 # define NUMBER_4 21
 # define NUMBER_5 23
+# define SPACE 49
+# define LETTER_Q 12
+# define LETTER_W 13
+# define LETTER_E 14
 
 typedef struct	s_var
 {
@@ -127,5 +131,13 @@ void	calc_julia(t_mlx *mlx, t_var *var, t_args *args);
 void	init_julia(t_args *args);
 int		julia_hook(int x, int y, void *args);
 
+
+/*
+** BURNINGSHIP
+*/
+
+int		print_burningship(t_args *args);
+void	algo_burningship(t_mlx *mlx, t_var *var, t_args *args);
+void	init_burningship(t_args *args);
 
 #endif
