@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 06:17:42 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/03 04:05:51 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/04 01:51:32 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	color2(t_mlx *mlx, t_var *var, int i)
 void	color(t_mlx *mlx, t_var *var, t_args *args, int i)
 {
 	if (i == args->it_max)
-		mlx->tab[var->y * WIDTH + var->x] = 0;
+		mlx->tab[var->y * WIDTH + var->x] = 9437439;
 	else if (i % 16 == 0)
 		mlx->tab[var->y * WIDTH + var->x] = 433731;
 	else if (i % 16 == 1)
@@ -69,5 +69,5 @@ void	color_input(int key, t_args *args)
 	if (key == NUMBER_4)
 		args->color_value = 2400;
 	if (key == NUMBER_5)
-		args->color_value = 6000;
+		args->color_value = 9000;
 }

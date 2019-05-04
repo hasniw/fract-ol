@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 03:23:21 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/03 05:57:44 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/04 01:59:37 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ int      ft_check_usage(int ac, char **av)
 int             main(int ac, char **av)
 {
     t_args  *args;
-    // t_image *image;
 
     if (ft_check_usage(ac, av) != 1)
         return (0);
