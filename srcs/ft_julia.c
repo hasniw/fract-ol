@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 05:52:07 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/03 05:49:12 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/04 02:24:39 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ void		init_julia(t_args *args)
 {
 	args->x1 = -2;
 	args->y1 = -1.5;
+	args->zoom = 300;
+	args->it_max = 50;
 	args->pause = 0;
 	args->var->c_r = -0.9;
 	args->var->c_i = 0.305;
-	args->zoom = 300;
-	args->it_max = 50;
 }
 
 void	calc_julia(t_mlx *mlx, t_var *var, t_args *args)
@@ -61,8 +61,6 @@ void	calc_julia(t_mlx *mlx, t_var *var, t_args *args)
 
 int			print_julia(t_args *args)
 {
-	char	*it;
-
 	args->var->x = 0;
 	bzero_tab(args->mlx->tab);
 	while (args->var->x < WIDTH)
@@ -77,10 +75,5 @@ int			print_julia(t_args *args)
 	}
 	mlx_put_image_to_window(args->mlx->mlx_p, args->mlx->win_p,
 			args->mlx->img_p, 0, 0);
-	mlx_string_put(args->mlx->mlx_p, args->mlx->win_p, 20, 20, 16777215,
-			"ITERATION MAX : ");
-	if (!(it = ft_itoa(args->it_max)))
-		return (0);
-	mlx_string_put(args->mlx->mlx_p, args->mlx->win_p, 180, 20, 16777215, it);
 	return (1);
 }

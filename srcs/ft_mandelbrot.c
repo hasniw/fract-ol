@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 05:51:36 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/03 04:03:06 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/04 02:24:15 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ void	algo_mandelbrot(t_mlx *mlx, t_var *var, t_args *args)
 
 int			print_mandelbrot(t_args *args)
 {
-	char	*i;
-
 	args->var->x = 0;
 	bzero_tab(args->mlx->tab);
 	while (args->var->x < WIDTH)
@@ -78,10 +76,5 @@ int			print_mandelbrot(t_args *args)
 	}
 	mlx_put_image_to_window(args->mlx->mlx_p, args->mlx->win_p,
 			args->mlx->img_p, 0, 0);
-	mlx_string_put(args->mlx->mlx_p, args->mlx->win_p, 20, 20, 16777215,
-			"ITERATION MAX : ");
-	if (!(i = ft_itoa(args->it_max)))
-		return (0);
-	mlx_string_put(args->mlx->mlx_p, args->mlx->win_p, 180, 20, 16777215, i);
 	return (1);
 }
