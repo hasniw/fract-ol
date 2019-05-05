@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 03:40:18 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/04 05:16:58 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/05 05:28:39 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@
 # define LETTER_Q 12
 # define LETTER_W 13
 # define LETTER_E 14
+# define LETTER_R 15
+# define LETTER_T 17
+# define LETTER_Y 16
+# define LETTER_U 32
 
 typedef struct	s_var
 {
@@ -139,5 +143,41 @@ int		julia_hook(int x, int y, void *args);
 int		print_burningship(t_args *args);
 void	algo_burningship(t_mlx *mlx, t_var *var, t_args *args);
 void	init_burningship(t_args *args);
+
+
+/*
+** DENDRITE
+*/
+
+int		print_dendrite(t_args *args);
+void	calc_dendrite(t_mlx *mlx, t_var *var, t_args *args);
+void	init_dendrite(t_args *args);
+
+
+/*
+** DISQUE DE SIEGEL
+*/
+
+int		print_disque_siegel(t_args *args);
+void	calc_disque_siegel(t_mlx *mlx, t_var *var, t_args *args);
+void	init_disque_siegel(t_args *args);
+
+
+/*
+** DRAGON DE DOUADY
+*/
+
+int		print_dragon_douady(t_args *args);
+void	calc_dragon_douady(t_mlx *mlx, t_var *var, t_args *args);
+void	init_dragon_douady(t_args *args);
+
+
+/*
+** BASILIQUE
+*/
+
+int		print_basilique(t_args *args);
+void	calc_basilique(t_mlx *mlx, t_var *var, t_args *args);
+void	init_basilique(t_args *args);
 
 #endif

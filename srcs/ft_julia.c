@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 05:52:07 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/04 05:43:17 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/05 06:30:27 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ void		init_julia(t_args *args)
 	args->y1 = -1.5;
 	args->zoom = 300;
 	args->it_max = 50;
-	args->pause = 0;
+	if (args->pause == 0)
+		args->pause = 0;
+	else
+		args->pause = 1;
 	args->var->c_r = 0.285;
 	args->var->c_i = 0.01;
 }

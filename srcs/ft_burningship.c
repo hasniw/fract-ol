@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 04:10:11 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/04 04:10:37 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/05 06:16:22 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void		init_burningship(t_args *args)
 {
 	args->x1 = -2;
-	args->y1 = -1.5;
+	args->y1 = -2;
 	args->zoom = 300;
 	args->it_max = 50;
 }

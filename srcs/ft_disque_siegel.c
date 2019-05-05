@@ -1,55 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mandelbrot.c                                    :+:      :+:    :+:   */
+/*   ft_disque_siegel.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 05:51:36 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/05 06:26:42 by wahasni          ###   ########.fr       */
+/*   Created: 2019/05/05 04:04:52 by wahasni           #+#    #+#             */
+/*   Updated: 2019/05/05 06:24:43 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	bzero_tab(unsigned int *tab)
+void		init_disque_siegel(t_args *args)
 {
-	int	i;
-
-	i = 0;
-	while (i < WIDTH * WIDTH)
-	{
-		tab[i] = 0;
-		i++;
-	}
-}
-
-void		init_mandelbrot(t_args *args)
-{
-	args->x1 = -2.4;
+	args->x1 = -1.8;
 	args->y1 = -1.5;
 	args->zoom = 300;
 	args->it_max = 50;
+	args->pause = 0;
+	args->var->c_r = -0.3905408702184;
+	args->var->c_i = -0.58678790734696873;
 }
 
-void	algo_mandelbrot(t_mlx *mlx, t_var *var, t_args *args)
+void	calc_disque_siegel(t_mlx *mlx, t_var *var, t_args *args)
 {
-	int				i;
-	double			tmp;
+	int		i;
+	double	tmp;
 
-	var->c_r = var->x / args->zoom + args->x1;
-	var->c_i = var->y / args->zoom + args->y1;
-	var->z_r = 0;
-	var->z_i = 0;
 	i = 0;
+	var->z_r = var->x / args->zoom + args->x1;
+	var->z_i = var->y / args->zoom + args->y1;
 	while (var->z_r * var->z_r + var->z_i *
-			var->z_i < 4 && i < args->it_max)
+			var->z_i < 4 && i++ < args->it_max)
 	{
 		tmp = var->z_r;
-		var->z_r = var->z_r * var->z_r - var->z_i *
-			var->z_i + var->c_r;
-		var->z_i = 2 * tmp * var->z_i + var->c_i;
-		i++;
+		var->z_r = var->z_r * var->z_r - var->z_i * var->z_i + var->c_r;
+		var->z_i = 2 * var->z_i * tmp + var->c_i;
 	}
 	if (args->color != 1)
 		if (i == args->it_max)
@@ -60,7 +47,7 @@ void	algo_mandelbrot(t_mlx *mlx, t_var *var, t_args *args)
 		color(mlx, var, args, i);
 }
 
-int			print_mandelbrot(t_args *args)
+int			print_disque_siegel(t_args *args)
 {
 	args->var->x = 0;
 	bzero_tab(args->mlx->tab);
@@ -69,7 +56,7 @@ int			print_mandelbrot(t_args *args)
 		args->var->y = 0;
 		while (args->var->y < WIDTH)
 		{
-			algo_mandelbrot(args->mlx, args->var, args);
+			calc_disque_siegel(args->mlx, args->var, args);
 			args->var->y++;
 		}
 		args->var->x++;

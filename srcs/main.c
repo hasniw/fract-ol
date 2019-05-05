@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 03:23:21 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/04 05:29:05 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/05 06:10:27 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,18 @@ int      print_fract(t_args *args)
 			return (0);
 	if (args->fract == 3)
 		if (!(print_burningship(args)))
+			return (0);
+	if (args->fract == 4)
+		if (!(print_basilique(args)))
+			return (0);
+	if (args->fract == 5)
+		if (!(print_dendrite(args)))
+			return (0);
+	if (args->fract == 6)
+		if (!(print_disque_siegel(args)))
+			return (0);
+	if (args->fract == 7)
+		if (!(print_dragon_douady(args)))
 			return (0);
 	return (1);
 }
@@ -42,6 +54,26 @@ void		init_fract(char *str, t_args *args)
 	{
 		init_burningship(args);
 		args->fract = 3;
+	}
+	else if (!ft_strcmp(str, "Basilique"))
+	{
+		init_basilique(args);
+		args->fract = 4;
+	}
+	else if (!ft_strcmp(str, "Dendrite"))
+	{
+		init_dendrite(args);
+		args->fract = 5;
+	}
+	else if (!ft_strcmp(str, "Disque_siegel"))
+	{
+		init_disque_siegel(args);
+		args->fract = 6;
+	}
+	else if (!ft_strcmp(str, "Dragon_douady"))
+	{
+		init_dragon_douady(args);
+		args->fract = 7;
 	}
 }
 
@@ -72,13 +104,19 @@ int      ft_check_usage(int ac, char **av)
         return (0);
     }
 	else if ((ft_strcmp(av[1], "Julia") && (ft_strcmp(av[1], "Mandelbrot")
-				&& (ft_strcmp(av[1], "Burningship")))))
+			&& (ft_strcmp(av[1], "Burningship") && (ft_strcmp(av[1], "Basilique")
+			&& (ft_strcmp(av[1], "Dendrite") && (ft_strcmp(av[1], "Disque_siegel")
+			&& (ft_strcmp(av[1], "Dragon_douady")))))))))
     {
         ft_putendl("usage : ./fractol [fractal]");
         ft_putendl("fractals :");
         ft_putendl("--> Mandelbrot");
         ft_putendl("--> Julia");
 		ft_putendl("--> Burningship");
+		ft_putendl("--> Basilique");
+		ft_putendl("--> Dendrite");
+		ft_putendl("--> Disque_sieguel");
+		ft_putendl("--> Dragon_douady");
         return (0);
     }
 	return (1);
