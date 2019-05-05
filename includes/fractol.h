@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 03:40:18 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/05 05:28:39 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/05 07:02:23 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ typedef struct  s_args
 }               t_args;
 
 void	bzero_tab(unsigned int *tab);
+t_args	*ft_init(void);
 
 /*
 ** PRINT FRACTAL
@@ -89,6 +90,7 @@ void	bzero_tab(unsigned int *tab);
 
 int		print_fract(t_args *args);
 void	init_fract(char *str, t_args *args);
+void	init_fract2(char *str, t_args *args);
 
 /*
 ** ACTIONS

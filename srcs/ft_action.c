@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 06:23:15 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/02 06:23:34 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/05 06:58:19 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,23 @@ void	dezoom(int x, int y, t_args *args)
 	args->y1 = (y / args->zoom + args->y1) - (y / (args->zoom / 1.3));
 	args->zoom /= 1.3;
 	args->it_max--;
+}
+
+t_args	*ft_init(void)
+{
+	t_args	*args;
+
+	if (!(args = malloc(sizeof(t_args))))
+		return (0);
+	if (!(args->mlx = malloc(sizeof(t_mlx))))
+		return (0);
+	if (!(args->var = malloc(sizeof(t_var))))
+		return (0);
+	args->mlx->mlx_p = mlx_init();
+	args->mlx->win_p = mlx_new_window(args->mlx->mlx_p, WIDTH, WIDTH, "WaWwWeeee");
+	args->mlx->img_p = mlx_new_image(args->mlx->mlx_p, WIDTH, WIDTH);
+	args->mlx->tab = (unsigned int *)mlx_get_data_addr(args->mlx->img_p,
+			&args->mlx->bpp, &args->mlx->sizeline, &args->mlx->endian);
+	args->color = 1;
+	return (args);
 }

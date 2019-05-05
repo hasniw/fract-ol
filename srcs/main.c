@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 03:23:21 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/05 06:10:27 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/05 07:01:08 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,25 @@ int      print_fract(t_args *args)
 	return (1);
 }
 
+void		init_fract2(char *str, t_args *args)
+{
+	if (!ft_strcmp(str, "Dendrite"))
+	{
+		init_dendrite(args);
+		args->fract = 5;
+	}
+	else if (!ft_strcmp(str, "Disque_siegel"))
+	{
+		init_disque_siegel(args);
+		args->fract = 6;
+	}
+	else if (!ft_strcmp(str, "Dragon_douady"))
+	{
+		init_dragon_douady(args);
+		args->fract = 7;
+	}
+}
+
 void		init_fract(char *str, t_args *args)
 {
 	if (!ft_strcmp(str, "Mandelbrot"))
@@ -60,40 +79,8 @@ void		init_fract(char *str, t_args *args)
 		init_basilique(args);
 		args->fract = 4;
 	}
-	else if (!ft_strcmp(str, "Dendrite"))
-	{
-		init_dendrite(args);
-		args->fract = 5;
-	}
-	else if (!ft_strcmp(str, "Disque_siegel"))
-	{
-		init_disque_siegel(args);
-		args->fract = 6;
-	}
-	else if (!ft_strcmp(str, "Dragon_douady"))
-	{
-		init_dragon_douady(args);
-		args->fract = 7;
-	}
-}
-
-t_args	*ft_init(void)
-{
-	t_args	*args;
-
-	if (!(args = malloc(sizeof(t_args))))
-		return (0);
-	if (!(args->mlx = malloc(sizeof(t_mlx))))
-		return (0);
-	if (!(args->var = malloc(sizeof(t_var))))
-		return (0);
-	args->mlx->mlx_p = mlx_init();
-	args->mlx->win_p = mlx_new_window(args->mlx->mlx_p, WIDTH, WIDTH, "WaWwWeeee");
-	args->mlx->img_p = mlx_new_image(args->mlx->mlx_p, WIDTH, WIDTH);
-	args->mlx->tab = (unsigned int *)mlx_get_data_addr(args->mlx->img_p,
-			&args->mlx->bpp, &args->mlx->sizeline, &args->mlx->endian);
-	args->color = 1;
-	return (args);
+	else
+		init_fract2(str, args);
 }
 
 int      ft_check_usage(int ac, char **av)
