@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mandelbrot.c                                    :+:      :+:    :+:   */
+/*   ft_multibrot_z5.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 05:51:36 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/08 02:49:43 by wahasni          ###   ########.fr       */
+/*   Created: 2019/05/07 22:24:17 by wahasni           #+#    #+#             */
+/*   Updated: 2019/05/08 00:58:20 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void		bzero_tab(unsigned int *tab)
+void		init_multibrot_z5(t_args *args)
 {
-	int	i;
-
-	i = 0;
-	while (i < WIDTH * WIDTH)
-	{
-		tab[i] = 0;
-		i++;
-	}
-}
-
-void		init_mandelbrot(t_args *args)
-{
-	args->x1 = -2.4;
+	args->x1 = -1.9;
 	args->y1 = -1.5;
 	args->zoom = 300;
 	args->it_max = 50;
 }
 
-void		algo_mandelbrot(t_mlx *mlx, t_var *var, t_args *args)
+void		algo_multibrot_z5(t_mlx *mlx, t_var *var, t_args *args)
 {
 	int				i;
 	double			tmp;
@@ -41,15 +29,13 @@ void		algo_mandelbrot(t_mlx *mlx, t_var *var, t_args *args)
 	var->c_i = var->y / args->zoom + args->y1;
 	var->z_r = 0;
 	var->z_i = 0;
-
 	i = 0;
 	while (var->z_r * var->z_r + var->z_i *
 			var->z_i < 4 && i < args->it_max)
 	{
 		tmp = var->z_r;
-		var->z_r = (var->z_r * var->z_r - var->z_i *
-			var->z_i) + var->c_r;
-		var->z_i = (2 * tmp * var->z_i) + var->c_i;
+		var->z_r = pow(var->z_r, 5) - 10 * pow(var->z_r, 3) * pow(var->z_i, 2) + 5 * var->z_r * pow(var->z_i, 4) + var->c_r;
+		var->z_i = 5 * pow(tmp, 4) * var->z_i - 10 *  pow(tmp, 2) * pow(var->z_i, 3) + pow (var->z_i, 5) + var->c_i;
 		i++;
 	}
 	if (args->color != 1)
@@ -61,7 +47,7 @@ void		algo_mandelbrot(t_mlx *mlx, t_var *var, t_args *args)
 		color(mlx, var, args, i);
 }
 
-int			print_mandelbrot(t_args *args)
+int			print_multibrot_z5(t_args *args)
 {
 	args->var->x = 0;
 	bzero_tab(args->mlx->tab);
@@ -70,7 +56,7 @@ int			print_mandelbrot(t_args *args)
 		args->var->y = 0;
 		while (args->var->y < WIDTH)
 		{
-			algo_mandelbrot(args->mlx, args->var, args);
+			algo_multibrot_z5(args->mlx, args->var, args);
 			args->var->y++;
 		}
 		args->var->x++;

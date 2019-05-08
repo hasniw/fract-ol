@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 04:10:11 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/05 06:16:22 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/05 19:02:41 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void		init_burningship(t_args *args)
 	args->it_max = 50;
 }
 
-void	algo_burningship(t_mlx *mlx, t_var *var, t_args *args)
+void		algo_burningship(t_mlx *mlx, t_var *var, t_args *args)
 {
 	int				i;
 	double			tmp;
@@ -35,7 +35,7 @@ void	algo_burningship(t_mlx *mlx, t_var *var, t_args *args)
 	{
 		tmp = var->z_r * var->z_r - var->z_i * var->z_i + var->c_r;
 		var->z_i = fabs(2 * var->z_r * var->z_i) + var->c_i;
-        var->z_r = tmp;
+		var->z_r = tmp;
 		i++;
 	}
 	if (args->color != 1)

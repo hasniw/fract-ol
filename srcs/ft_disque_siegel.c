@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/05 04:04:52 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/05 06:24:43 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/05 23:22:44 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void		init_disque_siegel(t_args *args)
 	args->var->c_i = -0.58678790734696873;
 }
 
-void	calc_disque_siegel(t_mlx *mlx, t_var *var, t_args *args)
+void		algo_disque_siegel(t_mlx *mlx, t_var *var, t_args *args)
 {
 	int		i;
 	double	tmp;
@@ -56,7 +56,7 @@ int			print_disque_siegel(t_args *args)
 		args->var->y = 0;
 		while (args->var->y < WIDTH)
 		{
-			calc_disque_siegel(args->mlx, args->var, args);
+			algo_disque_siegel(args->mlx, args->var, args);
 			args->var->y++;
 		}
 		args->var->x++;

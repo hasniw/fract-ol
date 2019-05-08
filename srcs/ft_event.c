@@ -6,11 +6,35 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 17:20:11 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/05 06:28:25 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/08 02:42:58 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+void	letter_hook2(int key, void *args)
+{
+	if (key == LETTER_T)
+	{
+		((t_args *)args)->fract = 5;
+		init_dendrite((t_args *)args);
+	}
+	if (key == LETTER_Y)
+	{
+		((t_args *)args)->fract = 6;
+		init_disque_siegel((t_args *)args);
+	}
+	if (key == LETTER_U)
+	{
+		((t_args *)args)->fract = 7;
+		init_dragon_douady((t_args *)args);
+	}
+	if (key == LETTER_I)
+	{
+		((t_args *)args)->fract = 8;
+		init_multibrot((t_args *)args);
+	}
+}
 
 void	letter_hook(int key, void *args)
 {
@@ -34,21 +58,7 @@ void	letter_hook(int key, void *args)
 		((t_args *)args)->fract = 4;
 		init_basilique((t_args *)args);
 	}
-	if (key == LETTER_T)
-	{
-		((t_args *)args)->fract = 5;
-		init_dendrite((t_args *)args);
-	}
-	if (key == LETTER_Y)
-	{
-		((t_args *)args)->fract = 6;
-		init_disque_siegel((t_args *)args);
-	}
-	if (key == LETTER_U)
-	{
-		((t_args *)args)->fract = 7;
-		init_dragon_douady((t_args *)args);
-	}
+	letter_hook2(key, args);
 }
 
 int		mouse_hook(int key, int x, int y, void *args)

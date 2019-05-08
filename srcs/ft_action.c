@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 06:23:15 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/05 18:17:17 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/05 19:03:40 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ t_args	*ft_init(void)
 {
 	t_args	*args;
 
-	if (!(args = malloc(sizeof(t_args))))
+	if (!(args = ft_memalloc(sizeof(t_args))))
 		return (0);
-	if (!(args->mlx = malloc(sizeof(t_mlx))))
+	if (!(args->mlx = ft_memalloc(sizeof(t_mlx))))
 		return (0);
-	if (!(args->var = malloc(sizeof(t_var))))
+	if (!(args->var = ft_memalloc(sizeof(t_var))))
 		return (0);
 	args->mlx->mlx_p = mlx_init();
-	args->mlx->win_p = mlx_new_window(args->mlx->mlx_p, WIDTH, WIDTH, "WaWwWeeee");
+	args->mlx->win_p = mlx_new_window(args->mlx->mlx_p, WIDTH, WIDTH, "Frac");
 	args->mlx->img_p = mlx_new_image(args->mlx->mlx_p, WIDTH, WIDTH);
 	args->mlx->tab = (unsigned int *)mlx_get_data_addr(args->mlx->img_p,
 			&args->mlx->bpp, &args->mlx->sizeline, &args->mlx->endian);

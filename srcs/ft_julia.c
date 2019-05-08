@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 05:52:07 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/05 07:16:02 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/05 23:22:44 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void		init_julia(t_args *args)
 	args->var->c_i = 0.01;
 }
 
-void	calc_julia(t_mlx *mlx, t_var *var, t_args *args)
+void		algo_julia(t_mlx *mlx, t_var *var, t_args *args)
 {
 	int		i;
 	double	tmp;
@@ -70,7 +70,7 @@ int			print_julia(t_args *args)
 		args->var->y = 0;
 		while (args->var->y < WIDTH)
 		{
-			calc_julia(args->mlx, args->var, args);
+			algo_julia(args->mlx, args->var, args);
 			args->var->y++;
 		}
 		args->var->x++;
