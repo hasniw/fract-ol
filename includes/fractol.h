@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 03:40:18 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/08 02:46:53 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/09 20:42:56 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,12 @@
 # define LETTER_Y 16
 # define LETTER_U 32
 # define LETTER_I 34
+
+/*
+** MACRO : POW OF Z ==> MULTIBROT
+*/
+
+# define NB 3
 
 typedef struct		s_var
 {
@@ -82,7 +88,6 @@ typedef struct		s_args
 	double			y1;
 }					t_args;
 
-void				bzero_tab(unsigned int *tab);
 t_args				*ft_init(void);
 
 /*

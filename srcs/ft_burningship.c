@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 04:10:11 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/05 19:02:41 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/09 20:44:16 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		init_burningship(t_args *args)
 {
-	args->x1 = -2;
+	args->x1 = -2.1;
 	args->y1 = -2;
 	args->zoom = 300;
 	args->it_max = 50;
@@ -50,7 +50,7 @@ void		algo_burningship(t_mlx *mlx, t_var *var, t_args *args)
 int			print_burningship(t_args *args)
 {
 	args->var->x = 0;
-	bzero_tab(args->mlx->tab);
+	bzero(args->mlx->tab, WIDTH * WIDTH);
 	while (args->var->x < WIDTH)
 	{
 		args->var->y = 0;

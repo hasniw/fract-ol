@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 22:24:17 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/08 00:58:20 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/09 20:44:16 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ void		algo_multibrot_z5(t_mlx *mlx, t_var *var, t_args *args)
 			var->z_i < 4 && i < args->it_max)
 	{
 		tmp = var->z_r;
-		var->z_r = pow(var->z_r, 5) - 10 * pow(var->z_r, 3) * pow(var->z_i, 2) + 5 * var->z_r * pow(var->z_i, 4) + var->c_r;
-		var->z_i = 5 * pow(tmp, 4) * var->z_i - 10 *  pow(tmp, 2) * pow(var->z_i, 3) + pow (var->z_i, 5) + var->c_i;
+		var->z_r = pow(var->z_r, 5) - 10 * pow(var->z_r, 3) * pow(var->z_i, 2)
+				+ 5 * var->z_r * pow(var->z_i, 4) + var->c_r;
+		var->z_i = 5 * pow(tmp, 4) * var->z_i - 10 *  pow(tmp, 2)
+			* pow(var->z_i, 3) + pow (var->z_i, 5) + var->c_i;
 		i++;
 	}
 	if (args->color != 1)
@@ -50,7 +52,7 @@ void		algo_multibrot_z5(t_mlx *mlx, t_var *var, t_args *args)
 int			print_multibrot_z5(t_args *args)
 {
 	args->var->x = 0;
-	bzero_tab(args->mlx->tab);
+	bzero(args->mlx->tab, WIDTH * WIDTH);
 	while (args->var->x < WIDTH)
 	{
 		args->var->y = 0;

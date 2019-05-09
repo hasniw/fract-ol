@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 05:52:07 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/05 23:22:44 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/09 20:44:16 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int			julia_hook(int x, int y, void *args)
 
 void		init_julia(t_args *args)
 {
-	args->x1 = -2;
+	args->x1 = -1.9;
 	args->y1 = -1.5;
 	args->zoom = 300;
 	args->it_max = 50;
@@ -64,7 +64,7 @@ void		algo_julia(t_mlx *mlx, t_var *var, t_args *args)
 int			print_julia(t_args *args)
 {
 	args->var->x = 0;
-	bzero_tab(args->mlx->tab);
+	bzero(args->mlx->tab, WIDTH * WIDTH);
 	while (args->var->x < WIDTH)
 	{
 		args->var->y = 0;

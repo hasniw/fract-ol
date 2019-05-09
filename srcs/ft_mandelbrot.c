@@ -6,27 +6,15 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 05:51:36 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/08 02:49:43 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/09 20:42:44 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void		bzero_tab(unsigned int *tab)
-{
-	int	i;
-
-	i = 0;
-	while (i < WIDTH * WIDTH)
-	{
-		tab[i] = 0;
-		i++;
-	}
-}
-
 void		init_mandelbrot(t_args *args)
 {
-	args->x1 = -2.4;
+	args->x1 = -2.3;
 	args->y1 = -1.5;
 	args->zoom = 300;
 	args->it_max = 50;
@@ -41,7 +29,6 @@ void		algo_mandelbrot(t_mlx *mlx, t_var *var, t_args *args)
 	var->c_i = var->y / args->zoom + args->y1;
 	var->z_r = 0;
 	var->z_i = 0;
-
 	i = 0;
 	while (var->z_r * var->z_r + var->z_i *
 			var->z_i < 4 && i < args->it_max)
@@ -64,7 +51,7 @@ void		algo_mandelbrot(t_mlx *mlx, t_var *var, t_args *args)
 int			print_mandelbrot(t_args *args)
 {
 	args->var->x = 0;
-	bzero_tab(args->mlx->tab);
+	bzero(args->mlx->tab, WIDTH * WIDTH);
 	while (args->var->x < WIDTH)
 	{
 		args->var->y = 0;

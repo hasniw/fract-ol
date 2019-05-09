@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 00:56:37 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/08 02:42:07 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/09 20:44:20 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		init_multibrot(t_args *args)
 {
-	args->x1 = -2;
+	args->x1 = -1.7;
 	args->y1 = -1.5;
 	args->zoom = 300;
 	args->it_max = 50;
@@ -22,23 +22,20 @@ void		init_multibrot(t_args *args)
 
 void		algo_multibrot(t_mlx *mlx, t_var *var, t_args *args)
 {
-	int				i;
-	double			tmp;
+	int		i;
+	double	tmp;
 
 	var->c_r = var->x / args->zoom + args->x1;
 	var->c_i = var->y / args->zoom + args->y1;
 	var->z_r = 0;
 	var->z_i = 0;
-	int n;
-
-	n = 3;
 	i = 0;
 	while (var->z_r * var->z_r + var->z_i *
 			var->z_i < 4 && i < args->it_max)
 	{
 		tmp = var->z_r;
-		var->z_r = pow((var->z_r * var->z_r + var->z_i * var->z_i), (n / 2)) * cos(n * atan2(var->z_i, var->z_r)) + var->c_r;
-		var->z_i = pow((tmp * tmp + var->z_i * var->z_i), (n / 2)) * sin(n * atan2(var->z_i, tmp)) + var->c_i;
+		var->z_r = pow((var->z_r * var->z_r + var->z_i * var->z_i), (NB / 2)) * cos(NB * atan2(var->z_i, var->z_r)) + var->c_r;
+		var->z_i = pow((tmp * tmp + var->z_i * var->z_i), (NB / 2)) * sin(NB * atan2(var->z_i, tmp)) + var->c_i;
 		i++;
 	}
 	if (args->color != 1)
@@ -53,7 +50,7 @@ void		algo_multibrot(t_mlx *mlx, t_var *var, t_args *args)
 int			print_multibrot(t_args *args)
 {
 	args->var->x = 0;
-	bzero_tab(args->mlx->tab);
+	bzero(args->mlx->tab, WIDTH * WIDTH);
 	while (args->var->x < WIDTH)
 	{
 		args->var->y = 0;
