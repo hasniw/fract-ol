@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 17:20:11 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/08 02:42:58 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/10 18:46:54 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ void	letter_hook2(int key, void *args)
 	{
 		((t_args *)args)->fract = 8;
 		init_multibrot((t_args *)args);
+	}
+	if (key == LETTER_O)
+	{
+		((t_args *)args)->fract = 9;
+		init_fatou_dust((t_args *)args);
 	}
 }
 
@@ -94,6 +99,10 @@ int		key_hook(int key, void *args)
 	if ((key > 17 && key < 22) || (key == 23))
 		color_input(key, ((t_args *)args));
 	letter_hook(key, (t_args *)args);
+	if (key == PLUS)
+		((t_args *)args)->it_max += 20;
+	if (key == MINUS)
+		((t_args *)args)->it_max -= 20;
 	print_fract(args);
 	return (0);
 }

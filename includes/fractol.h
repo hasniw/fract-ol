@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 03:40:18 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/09 20:42:56 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/10 18:50:21 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@
 # define LETTER_Y 16
 # define LETTER_U 32
 # define LETTER_I 34
+# define LETTER_O 31
+# define PLUS 69
+# define MINUS 78
 
 /*
 ** MACRO : POW OF Z ==> MULTIBROT
@@ -88,7 +91,12 @@ typedef struct		s_args
 	double			y1;
 }					t_args;
 
+/*
+** ACTION
+*/
+
 t_args				*ft_init(void);
+int					ft_check_usage(int ac, char **av);
 
 /*
 ** PRINT FRACTAL
@@ -188,5 +196,13 @@ void				init_basilique(t_args *args);
 void				init_multibrot(t_args *args);
 void				algo_multibrot(t_mlx *mlx, t_var *var, t_args *args);
 int					print_multibrot(t_args *args);
+
+/*
+** FATOU DUST
+*/
+
+void				init_fatou_dust(t_args *args);
+void				algo_fatou_dust(t_mlx *mlx, t_var *var, t_args *args);
+int					print_fatou_dust(t_args *args);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 00:56:37 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/09 20:44:20 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/10 01:19:01 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ void		algo_multibrot(t_mlx *mlx, t_var *var, t_args *args)
 			var->z_i < 4 && i < args->it_max)
 	{
 		tmp = var->z_r;
-		var->z_r = pow((var->z_r * var->z_r + var->z_i * var->z_i), (NB / 2)) * cos(NB * atan2(var->z_i, var->z_r)) + var->c_r;
-		var->z_i = pow((tmp * tmp + var->z_i * var->z_i), (NB / 2)) * sin(NB * atan2(var->z_i, tmp)) + var->c_i;
+		var->z_r = pow((var->z_r * var->z_r + var->z_i * var->z_i), (NB / 2))
+			* cos(NB * atan2(var->z_i, var->z_r)) + var->c_r;
+		var->z_i = pow((tmp * tmp + var->z_i * var->z_i), (NB / 2))
+			* sin(NB * atan2(var->z_i, tmp)) + var->c_i;
 		i++;
 	}
 	if (args->color != 1)

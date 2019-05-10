@@ -6,7 +6,7 @@
 #    By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/20 01:48:33 by mnaji             #+#    #+#              #
-#    Updated: 2019/05/08 02:48:37 by wahasni          ###   ########.fr        #
+#    Updated: 2019/05/10 01:09:57 by wahasni          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ SRC_FILES = main.c \
 			ft_dendrite.c \
 			ft_disque_siegel.c \
 			ft_dragon_douady.c \
-			ft_multibrot.c
+			ft_multibrot.c \
+			ft_fatou_dust.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))

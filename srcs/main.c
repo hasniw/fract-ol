@@ -6,11 +6,28 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 03:23:21 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/09 20:38:14 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/10 18:54:52 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+int			print_fract2(t_args *args)
+{
+	if (args->fract == 6)
+		if (!(print_disque_siegel(args)))
+			return (0);
+	if (args->fract == 7)
+		if (!(print_dragon_douady(args)))
+			return (0);
+	if (args->fract == 8)
+		if (!(print_multibrot(args)))
+			return (0);
+	if (args->fract == 9)
+		if (!(print_fatou_dust(args)))
+			return (0);
+	return (1);
+}
 
 int			print_fract(t_args *args)
 {
@@ -29,16 +46,7 @@ int			print_fract(t_args *args)
 	if (args->fract == 5)
 		if (!(print_dendrite(args)))
 			return (0);
-	if (args->fract == 6)
-		if (!(print_disque_siegel(args)))
-			return (0);
-	if (args->fract == 7)
-		if (!(print_dragon_douady(args)))
-			return (0);
-	if (args->fract == 8)
-		if (!(print_multibrot(args)))
-			return (0);
-	return (1);
+	return (print_fract2(args));
 }
 
 void		init_fract2(char *str, t_args *args)
@@ -58,10 +66,15 @@ void		init_fract2(char *str, t_args *args)
 		init_dragon_douady(args);
 		args->fract = 7;
 	}
-	else
+	else if (!ft_strcmp(str, "Multibrot"))
 	{
 		init_multibrot(args);
 		args->fract = 8;
+	}
+	else
+	{
+		init_fatou_dust(args);
+		args->fract = 9;
 	}
 }
 
@@ -89,34 +102,6 @@ void		init_fract(char *str, t_args *args)
 	}
 	else
 		init_fract2(str, args);
-}
-
-int			ft_check_usage(int ac, char **av)
-{
-	if (ac != 2)
-	{
-		ft_putendl("Il n'y a pas le bon nombre d'argument");
-		return (0);
-	}
-	else if ((ft_strcmp(av[1], "Julia") && (ft_strcmp(av[1], "Mandelbrot")
-	&& (ft_strcmp(av[1], "Burningship") && (ft_strcmp(av[1], "Basilique")
-	&& (ft_strcmp(av[1], "Dendrite") && (ft_strcmp(av[1], "Disque_siegel")
-	&& (ft_strcmp(av[1], "Dragon_douady")
-	&& (ft_strcmp(av[1], "Multibrot"))))))))))
-	{
-		ft_putendl("usage : ./fractol [fractal]");
-		ft_putendl("fractals :");
-		ft_putendl("--> Mandelbrot");
-		ft_putendl("--> Julia");
-		ft_putendl("--> Burningship");
-		ft_putendl("--> Basilique");
-		ft_putendl("--> Dendrite");
-		ft_putendl("--> Disque_sieguel");
-		ft_putendl("--> Dragon_douady");
-		ft_putendl("--> Multibrot");
-		return (0);
-	}
-	return (1);
 }
 
 int			main(int ac, char **av)
