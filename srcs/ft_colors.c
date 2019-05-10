@@ -6,7 +6,7 @@
 /*   By: wahasni <wahasni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 06:17:42 by wahasni           #+#    #+#             */
-/*   Updated: 2019/05/05 19:01:58 by wahasni          ###   ########.fr       */
+/*   Updated: 2019/05/11 01:51:16 by wahasni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,43 +15,43 @@
 void	color2(t_mlx *mlx, t_var *var, int i)
 {
 	if (i % 16 == 7)
-		mlx->tab[var->y * WIDTH + var->x] = 776123;
+		mlx->tab[var->y * WIDTH + var->x] = 7761123;
 	else if (i % 16 == 8)
-		mlx->tab[var->y * WIDTH + var->x] = 838239;
+		mlx->tab[var->y * WIDTH + var->x] = 8381239;
 	else if (i % 16 == 9)
-		mlx->tab[var->y * WIDTH + var->x] = 8876320;
+		mlx->tab[var->y * WIDTH + var->x] = 81876320;
 	else if (i % 16 == 10)
-		mlx->tab[var->y * WIDTH + var->x] = 5401325;
+		mlx->tab[var->y * WIDTH + var->x] = 54011325;
 	else if (i % 16 == 11)
-		mlx->tab[var->y * WIDTH + var->x] = 16343279;
+		mlx->tab[var->y * WIDTH + var->x] = 163432719;
 	else if (i % 16 == 12)
-		mlx->tab[var->y * WIDTH + var->x] = 16520230;
+		mlx->tab[var->y * WIDTH + var->x] = 165210230;
 	else if (i % 16 == 13)
-		mlx->tab[var->y * WIDTH + var->x] = 13223112;
+		mlx->tab[var->y * WIDTH + var->x] = 132123112;
 	else if (i % 16 == 14)
-		mlx->tab[var->y * WIDTH + var->x] = 10923280;
+		mlx->tab[var->y * WIDTH + var->x] = 101923280;
 	else if (i % 16 == 15)
-		mlx->tab[var->y * WIDTH + var->x] = 6962301;
+		mlx->tab[var->y * WIDTH + var->x] = 16962301;
 }
 
 void	color(t_mlx *mlx, t_var *var, t_args *args, int i)
 {
 	if (i == args->it_max)
-		mlx->tab[var->y * WIDTH + var->x] = 9437439;
+		mlx->tab[var->y * WIDTH + var->x] = 94137439;
 	else if (i % 16 == 0)
-		mlx->tab[var->y * WIDTH + var->x] = 433731;
+		mlx->tab[var->y * WIDTH + var->x] = 4331731;
 	else if (i % 16 == 1)
-		mlx->tab[var->y * WIDTH + var->x] = 162183;
+		mlx->tab[var->y * WIDTH + var->x] = 1621813;
 	else if (i % 16 == 2)
-		mlx->tab[var->y * WIDTH + var->x] = 5922137;
+		mlx->tab[var->y * WIDTH + var->x] = 59221371;
 	else if (i % 16 == 3)
-		mlx->tab[var->y * WIDTH + var->x] = 2213641;
+		mlx->tab[var->y * WIDTH + var->x] = 22136411;
 	else if (i % 16 == 4)
-		mlx->tab[var->y * WIDTH + var->x] = 1813222;
+		mlx->tab[var->y * WIDTH + var->x] = 11813222;
 	else if (i % 16 == 5)
-		mlx->tab[var->y * WIDTH + var->x] = 797284;
+		mlx->tab[var->y * WIDTH + var->x] = 1797284;
 	else if (i % 16 == 6)
-		mlx->tab[var->y * WIDTH + var->x] = 159233;
+		mlx->tab[var->y * WIDTH + var->x] = 1159233;
 	else
 		color2(mlx, var, i);
 }
